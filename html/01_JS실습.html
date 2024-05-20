@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--html 5 버전-->
+<html lang="ko">
+  <!--html 코딩 시작 검색엔진 ko-->
+  <head>
+    <!--웹 설정 meta title scc script style-->
+    <meta charset="UTF-8" />
+    <title>테마 변경하기</title>
+  </head>
+  <body>
+    <h1>밝은테마 / 어두운 테마로 변경하기</h1>
+    <button onclick="밝은모드()">라이트 모드</button>
+    <button onclick="어두운모드()">다크 모드</button>
+    <script>
+      /* 스크립트도 마찬가지로 head와 body 에 넣어도 되지만
+            맨 밑으로 모으거나 맨 위로 모으면 좋음
+
+            // 버튼 클릭 할 경우 body에 있는 글자색과 배경색을 변경
+
+            // 함수(function) button에서 onclick 안에 작성한 기능명을 작성
+            function 기능명() {
+                기능을 클릭하거나 사용할 때 수행할 동작들 작성
+            }
+        */
+
+      // Body 태그는 html 안에서 존재하는 이름일 뿐 script 안에서 존재하는 이름은 아님
+      const 바디 = document.querySelector("body"); /*body 태그 선택*/
+      /* 라이트 모드 버튼을 눌렀을 때 실행되는 기능 작성*/
+      function 밝은모드() {
+        // body 태그 안에 style 변경 style 안에서 글자색을 변경하는 color를 설정
+        // 태그 안으로 무언가를 작성할 때는 . 작성
+        바디.style.color = "black"; //글자색을 흰색으로 변경
+
+        //body 태그 안에서 style 변경   style 안에서 배경색을 변경하는 backgroundcolor 설정
+        바디.style.backgroundColor = "white";
+      }
+      /* 다크 모드 버튼을 눌렀을 때 실행되는 기능 작성*/
+      function 어두운모드() {
+        바디.style.color = "white";
+        바디.style.backgroundColor = "black";
+      }
+    </script>
+  </body>
+</html>

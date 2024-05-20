@@ -1,0 +1,61 @@
+<!DOCTYPE html><!--html 5 버전 시작-->
+<html lang="ko"><!--html 코딩 시작 검색엔진 언어 ko = 한국어-->
+<head>
+    <meta charset="UTF-8"><!--언어 깨짐 방지-->
+    <title>01_JS 개요</title>
+</head>
+<body>
+    <h1>Script 언어란?</h1>
+    <pre>
+        기본 프로그램의 동작을 사용자의 요구에 맞게 수행되도록 해주는 용도의 언어
+
+        JAVA처럼 별도로 코드를 컴파일(이진수로 번역)을 하지 않고
+        Interpreter(인터프리터, 한 줄씩 코드를 읽어서 해석하는 기능)를
+        이용해서 코드를 바로 실행
+
+        - 장점 : 컴파일에 소용되는 시간이 없음
+        - 단점 : 프로그램 실행 시간이 자바보다 상대적으로 느림    
+    </pre>
+    <h1>javascript 코드 작성 방법</h1>
+        <ol>
+            <li>브라우저 개발자도구 (F12) -> console 에 직접 작성
+                <small> * 콘솔이란 웹 화면에서 보면서 코딩을 작성하는 공간</small>
+            </li>
+            <li>
+                HTML 내부에 script 태그를 이용해서 작성
+                <br>
+                <button onclick="알림창보이기()">내부에 script 작성 </button>
+
+                <script>
+                    // javascript = 줄임언어로 js 표현
+                    // 한 줄 주석
+                    /* 범위 주석 */
+                    /* script 태그 JS 코드를 작성할 수 있는 태그*/
+
+                    /*
+                    java에서 기능(메서드)을 작성할 때
+                    
+                    public void 동작이름() {
+                        System.out.println("입력을 진행했습니다.");
+                    }
+
+                    javascript에서 기능(function)을 작성할 때
+                    
+                        function 동작이름() {
+
+                        console.log = "소비자 눈에는 보이지 않지만 개발자 눈에는 보이는 출력문" 
+                        alert       = "소비자 눈에는 보이는 출력문" 
+                        을 이용해서 표현
+                        }
+                    */
+                    //function : 함수, 기능
+                    function 알림창보이기(){
+                        // alert : 알림 / 경고 창 alert 보여주고자 하는 내용 " " 안에 작성
+                        alert("버튼이 클릭되었습니다.");
+                    }
+                </script>
+            </li>
+        </ol>
+
+</body>
+</html>
