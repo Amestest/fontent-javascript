@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>입출금계좌</title>
+    </head>
+    <body>
+        <h1>입출금하기</h1>
+        <hr>
+        <style>
+            .account, .account * {
+                margin: 0;
+                padding: 0;
+            }
+            .account{
+                border: 5px solid gray;/* 선 표현*/
+                border-radius: 20px; /* 테두리 둥글게*/
+                padding : 10px 50px; /*상하 10px 좌우 50px*/
+                width: 500px; /*넓이 500px*/
+                margin: 100px auto; /*상하 100px 간격 준 것*/
+            }
+            .row {
+                display: flex;
+                margin: 20px 0;
+                padding: 20px 0;
+            }
+            button{
+                margin: 0 30px;
+                border: 5px solid black;
+                background-color: white;
+                font-size: 30px;
+                font-weight: bold;
+                border-radius: 10px;
+            }
+            .입금버튼꾸미기 {
+                border-color: green; /*테두리 색상*/
+                color: green; /*글자색*/
+            }
+            .출금버튼꾸미기 {
+                border-color: red; /*테두리 색상*/
+                color: red; /*글자색*/
+            }
+        
+        </style>
+        <div class="account">
+            <div class="row">
+                <h1>잔액 : <span id="output">0</span>원</h1>
+            </div>
+            <div class="row">
+                <label>금액 : </label>
+                <input type="text" id="amount">
+                <span>원</span>
+            </div>
+            <div class="row">
+                <button class="입금버튼꾸미기" onclick="입금버튼()">입금하기</button>
+                <button class="출금버튼꾸미기" onclick="입금버튼()">출금하기</button>
+            </div>
+            <script>
+                let 잔액 = 0; //처음잔액 설정
+                //입금하기 출금하기
+
+                function 입금버튼(){
+                    //숫자가 아니라 문자로 인식할 때는 문자 -> 숫자로 변경해줌
+                    //parseInt 문자 -> 숫자로 변경
+                    const 입금액 = parseInt(document.getElementById("amount").value);
+
+                    //만약에 숫자 이외의 값을 넣을 경우
+                    /*입금액이 숫자가 아니거나 또는 입금액이 - 일 때*/
+                    if(isNaN(입금액) || 입금액 < 0){ 
+                        alert("올바른 금액을 입력하세요.");
+                    } else { /*입금액이 숫자이고 입금액이 + 일 때*/
+                        잔액 += 입금액;
+                        document.getElementById("output").innerText = 잔액;
+                    }
+                  
+
+                }
+                function 출금버튼(){
+                    const 출금액 = parseInt(document.getElementById("amount").value);
+
+
+                    //만약에 작성한 값이 숫자가 아니거나 - 일 경우
+                if(isNaN(출금액) || 출금액 <0){
+                        alert("올바른 금액을 입력하세요.");
+                    }
+                    //돈을 출금하기 전에 잔액보다 보유하고 있는 금액이 적은지 확인
+                    //잔액 10000 출금액 9000
+                 else {
+                     if(출금액 <= 잔액){
+                        잔액 -= 출금액;
+                    document.getElementById("output").innerText=잔액;
+                    } else {
+                        alert("잔액이 부족합니다.");
+                    }
+                }
+            }
+            </script>
+        </div>
+    </body>
+</html>
