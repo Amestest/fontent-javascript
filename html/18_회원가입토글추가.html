@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입토글</title>
+    <style>
+      #토글박스 {
+        width: 400px;
+        height: 400px;
+        background-color: aliceblue;
+        border: 2px solid pink;
+        text-align: center;
+        line-height: 200px;
+      }
+      button {
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 10px;
+        background-color: antiquewhite;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+      .이용약관 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>회원가입</h1>
+      이름 : <input type="text" id="user_name" required /><br />
+      이메일 : <input type="email" id="user_email" required /><br />
+      비밀번호 : <input type="password" id="user_pw" required /><br />
+      비밀번호 확인 :
+      <input type="password" id="user_pw_confirm" required /><br />
+      <button onclick="이름이메일확인()">이름이메일 중복확인</button>
+      <button onclick="비밀번호일치여부()">비밀번호 확인</button>
+
+      <div id="토글박스">이용약관</div>
+      <button onclick="보이기숨기기()">이용약관 확인하기</button>
+      <br />
+      <button onclick="회원가입()">회원가입</button>
+
+      <script>
+        const 이름값 = document.getElementById("user_name");
+        const 이메일값 = document.getElementById("user_email");
+        const 비밀번호값 = document.getElementById("user_pw");
+        const 비밀번호확인값 = document.getElementById("user_pw_confirm");
+
+        function 이름이메일확인() {
+          const 이름 = 이름값.value;
+          const 이메일 = 이메일값.value;
+          const 비밀번호 = 비밀번호값.value;
+
+          if (이름 == "고영희" && 이메일 == "ko@kh.kh") {
+            alert("이미 가입한 회원입니다. 로그인해주세요");
+          } else {
+            alert("가입하지 않은 회원입니다.");
+          }
+        }
+
+        function 비밀번호일치여부() {
+          const pw = 비밀번호값.value;
+          const pw_confirm = 비밀번호확인값.value;
+
+          if (pw == pw_confirm) {
+            alert("비밀번호가 일치합니다.");
+          } else {
+            alert("비밀번호가 일치하지 않습니다.");
+          }
+        }
+        function 보이기숨기기() {
+          const 박스 = document.getElementById("토글박스");
+          if (박스.classList.contains("이용약관")) {
+            박스.classList.remove("이용약관");
+          } else {
+            박스.classList.add("이용약관");
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>

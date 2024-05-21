@@ -15,8 +15,25 @@
                 <!--나중에 메뉴 추가하기를 했을 때 추가될 것-->
             </ul>
         </div>
-        <button onlick="메뉴선택()">메뉴 선택하기</button>
-        <button onlick="메뉴추가()">메뉴 추가하기</button>
+        <style>
+            button{
+                padding: 10px 20px;
+                background-color: green;
+                color:white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            /*버튼 위에 마우스 올렸을 때 색상변경*/
+            button:hover{
+                background-color: yellowgreen;
+            }
+            ul {
+                list-style-type: none;
+            }
+        </style>
+        <button onclick="메뉴선택()">메뉴 선택하기</button>
+        <button onclick="메뉴추가()">메뉴 추가하기</button>
         <script>
             //메뉴추가 기능만들기
             function 메뉴추가(){
@@ -50,13 +67,13 @@ appendChild : 눈에 보이게끔  부모 태그에 새로 만든 자식 태그�
                 const 메뉴리스트 = document.getElementById("menu-list");
                 // li 태그를 선택해서 숫자 배열로 만들기
                 const 아이템들 = document.getElementsByTagName("li");
-                console.log("아이템들 : " + 아이템들);
+                
                 //만약 모든 아이템을 보길 원한다면 for문 사용
                 //랜덤숫자
                 const 랜덤숫자 = Math.floor(Math.random() * 아이템들.length);
                 console.log("랜덤으로 나온 숫자 : " + 랜덤숫자);
                 const 아이템선택 = 아이템들[랜덤숫자];
-                console.log("선택된 아이템 : " + 아이템선택);
+               
                 console.log("선택된 아이템이름 : " + 아이템선택.innerText);
                 alert("오늘의 점심 메뉴는 ?" + 아이템선택.innerText);
             }
