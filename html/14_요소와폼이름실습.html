@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>폼 이름 실습</title>
+  </head>
+  <body>
+    <h1>설문조사</h1>
+    <form id="폼">
+      <label>이름 : </label>
+      <input type="text" id="이름" name="user_name" required /><br /><br />
+      <label>설문 내용 : </label>
+      <textarea
+        id="설문내용"
+        naem="user_feedback"
+        rows="4"
+        cols="20"
+        required
+      ></textarea>
+      <br /><br />
+      <!--button이지만 button 기본타입 submit
+           제출이 아니라 결과를 보여주기 이기 때문에 
+            type에 button을 넣어야함-->
+      <button onclick="제출하기()">제출</button>
+    </form>
+    <style>
+      #설문결과 {
+        display: none;
+      }
+    </style>
+    <div id="설문결과">
+      <h2>설문조사 결과</h2>
+      <p><strong>이름 : </strong><span id="설문이름"></span></p>
+      <p><strong>설문내용 : </strong><span id="설문내용결과"></span></p>
+    </div>
+    <script>
+      function 제출하기() {
+        const 이름 = documnet.getElementById("이름").value;
+        const 설문내용 = documnet.getElementById("설문내용").value;
+
+        //이름과 설문내용에 작성한 결과를 표시하기
+        document.getElementById("설문이름").textContent = 이름;
+        document.getElementById("설문내용결과").textContent = 설문내용;
+
+        //결과보이기
+        documnet.getElementById("설문결과").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

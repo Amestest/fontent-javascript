@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!--meta title style script link-->
+    <meta charset="UTF-8" />
+    <title>테마 변경하기</title>
+  </head>
+  <body>
+    <h1>테마 변경</h1>
+    <button onclick="밝은모드()">밝은 모드</button>
+    <button onclick="어두운모드()">어두운 모드</button>
+    <button onclick="분홍모드()">분홍 모드</button>
+    <button onclick="초록모드()">초록 모드</button>
+  </body>
+  <script>
+    // 자료형 var(오래된 버전) let const(최신 버전)
+    // document = html 문서 안에서 선택하기   body
+    // ID=변수명을 가지고 올 때는 getElementById("변수명")
+    //querySelector -> 특정한 class나 id가 없을 때 선택하겠다. body 태그를
+    const 바디 = document.querySelector("body");
+
+    // 밝은 모드 기능 만들기
+    function 밝은모드(){
+        바디.style.color = "black"; //body 태그 안에 잇는 style 에서 글자색(color) 를 검정으로 변경
+        바디.style.background = "white";
+    }
+
+    //어두운 모드 기능 만들기
+    function 어두운모드(){
+        바디.style.color = "white";
+        바디.style.background = "black";
+    }
+    function 분홍모드(){
+        바디.style.color = "lightpink";
+        바디.style.background = "lightsteelblue";
+    }
+    /* js 는 오타나 철자 문제가 있을 때
+        문제를 보여주며 실행르 ㅁ머추는 것이 아니라
+        style로 예를 들자면 기본색상인 검정을 가져오거나 그 전에 사용한 색상을 가지고와서 활용*/
+    function 초록모드(){
+        바디.style.color = "yellowgreen";
+        바디.style.background = "lightgreen";
+    }
+  </script>
+</html>

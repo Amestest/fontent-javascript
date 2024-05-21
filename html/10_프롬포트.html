@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>프롬포트</title>
+    </head>
+    <body>
+        <h1>프롬포트</h1>
+        <pre>
+            prompt(내용) : 문자열을 작성할 수 잇는 알림창
+             - 확인 버튼 클릭할 경우 : 입력한 내용 전달
+             - 취소 버튼 클릭할 경우 : null 값 전달
+        </pre>
+
+        <button onclick="알락()">알락버튼</button>
+        <button onclick="프롬포트()">프롬포트버튼</button>
+        <script>
+            //알락() 기능 만들기
+            function 알락(){
+                alert("알락입니다~!");
+            }
+
+            //프롬포트() 기능 만들기
+            function 프롬포트(){
+                prompt("비밀번호를 확인하세요.");
+            }
+        </script>
+    </body>
+</html>
