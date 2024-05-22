@@ -1,9 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>휴대폰, 생년월일</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form action="#" name="signupForm">
+      <h3>휴대폰번호</h3>
+      <input
+        type="number"
+        class="signup-input"
+        id="inputPhone"
+        name="user_Phone"
+      />
+      <br />
+      <span class="input-result">폰번호</span>
+      <h3>생년월일</h3>
+      <input
+        type="date"
+        class="signup-input"
+        id="inputYears"
+        name="user_Birth"
+      />
+      <br />
+      <span class="input-result">생일</span>
+    </form>
+    <script>
+      const checkList = {
+        inputPhone: false,
+        inputYears: false,
+      };
+      const inputPhone = document.querySelector("#inputPhone");
+      const inputYears = document.querySelector("#inputYears");
 
-    </head>
-    <body>
-        s
-    </body>
+      inputPhone.addEventListener("input", (e) => {
+        const value = e.target.value;
+        const span = e.target.netxElementSibling.netxElementSibling;
+
+        if (value.trim().length == 0) {
+          span.textContent = "휴대폰번호";
+          span.classList.remove("check", "error");
+          e.target.value = "";
+          checkList["inputPhone"] = false;
+          return;
+        }
+
+        const 휴대폰번호 = /^\d{3}-\d{3,4}-\d{4}$/;
+
+        if (휴대폰번호.test(value)) {
+          span.textContent = "유효한 번호의 형식입니다.";
+          span.classList.add("check");
+          span.classList.remove("error");
+          checkList["inputName"] = true;
+        } else {
+          span.textContent = "유효하지 않은 번호의 형식입니다.";
+          span.classList.add("error");
+          span.classList.remove("check");
+          checkList["inputName"] = false;
+        }
+      });
+      inputYears.addEventListener("input", (e) => {
+        const value = e.target.value;
+        const span = e.target.netxElementSibling.netxElementSibling;
+
+        if (value.trim().length == 0) {
+          span.textContent = "생년월일";
+          span.classList.remove("check", "error");
+          e.target.value = "";
+          checkList["inputYears"] = false;
+          return;
+        }
+
+        const 생년월일 = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;;
+
+        if (휴대폰번호.test(value)) {
+          span.textContent = "유효한 날짜의 형식입니다.";
+          span.classList.add("check");
+          span.classList.remove("error");
+          checkList["inputYears"] = true;
+        } else {
+          span.textContent = "유효하지 않은 날짜의 형식입니다.";
+          span.classList.add("error");
+          span.classList.remove("check");
+          checkList["inputYears"] = false;
+        }
+      });
+    </script>
+  </body>
 </html>
