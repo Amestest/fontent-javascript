@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>클릭한 숫자 기록</title>
+  </head>
+  <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 150px;
+        margin: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        /*flex-wrap : 아이템들이 여러줄에 걸쳐 나타나는 것을 결정
+          wrap : 아이템들이 여러줄에 걸쳐서 나타남
+          nowrap : 아이템들이 여러 줄에 걸쳐 나타나지 않고 한 줄에 뭉쳐서 표시
+        */
+    }
+    .number{
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+    }
+    .number:hover{
+        background-color: skyblue;
+    }
+    .number:active{ /*클릭시 색상 변함*/
+        background-color: orange;
+    }
+    #resultBtn{
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        color: white;
+        background-color: darkblue;
+    }
+    #resultBtn:hover{
+        background-color: deepskyblue;
+    }
+    #result {
+        font-size: 24px;
+        font-weight: bold;
+        color: navy;
+        display: block;
+        margin-top: 10px;
+    }
+  </style>
+  <body>
+    <h1>클릭한 숫자들 기록하기</h1>
+    <div class="container">
+      <div class="number">1</div>
+      <div class="number">2</div>
+      <div class="number">3</div>
+      <div class="number">4</div>
+      <div class="number">5</div>
+      <div class="number">6</div>
+      <div class="number">7</div>
+      <div class="number">8</div>
+      <div class="number">9</div>
+      <div class="number">10</div>
+    </div>
+    <div>
+      클릭한숫자 : <span id="result"></span>
+      <br />
+      <button id="resultBtn">초기화</button>
+    </div>
+    <script>
+      const number = document.querySelectorAll(".number");
+      const result = document.querySelector("#result");
+
+      /*
+        for(    of    ){}
+            태그를 돔
+
+        for (let item of 숫자들){}
+        const 숫자들 = [1,2,3,4,5];
+
+        for(   in    ){}
+            키를 기반으로해서 반복
+        for( let key  in  사람들  ){}
+            const 사람들 ={
+                기호1번 : 김말숙
+                기호2번 : 박정애,
+                기호3번 : 오연석
+            }
+        */
+
+      for (let item of numbers) {//for ... of 배열이나 객체 태그를 순회할 때 사용하는 문법
+        item.addEventListener("click", (e) => {
+            // 만약 숫자를 10이상 누르면 10글자까지만 입력가능하다는 alert 설정
+            // === 일치연산자 값과 타임을 모두 비교
+            // == 동등연산자 값까지만 비교
+            if(result.textContent.length === 10){
+                alert("10글자까지만 쓸 수 있습니다.");
+                return;
+            }else{
+            result.textContent += e.target.textContent;
+            }//숫자 결과에 클릭한숫자들 모두 += 옆에다가 담아두기
+        });
+      }
+
+    
+      /*초기화 버튼*/
+      document.querySelector("#resultBtn").addEventListener("click",() =>{
+            result.textContent = ""; //기존에 있던 값을 모두 ""로 지우는 것 ""
+      })
+    </script>
+  </body>
+</html>

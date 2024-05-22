@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta charset="UTF-8">
+<title>아이디 유효성 검사</title>
+    </head>
+    <style>
+        .check {
+          color: green;
+        }
+        .error {
+          color: red;
+        }
+      </style>
+    <body>
+        <h1>회원가입</h1>
+        <form>
+        <h2>아이디</h2>
+        <input type="text" class="signup-input" id="inputId" name="user_Id">
+        <br>
+        <span class="input-result">영어,숫자 6~16 글자 사이</span>
+    </form>
+    <script>
+        const checkList = {
+            inputId: false,
+        };
+        const inputId = document.querySelector("#inputId");
+        
+        inputId.addEventListener("input",(e)=>{
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+        if(value.trim().length ==0){
+            span.textContent = "영어,숫자 6~16 글자 사이";
+            span.classList.remove("check","error");
+            e.target.value ="";
+            checkList["inputId"] = false;
+            return;
+        }
+        const 아이디정규식=/^[A-Za-z0-9]{6,16}$/;
+
+        if(아이디정규식.test(value)){
+            span.textContent = "유효한 아이디의 형식입니다.";
+            span.classList.add("check");
+            span.classList.remove("error");
+            checkList["inputId"] = true;
+        } else{
+            span.textContent = "유효하지 않은 아이디의 형식입니다.";
+            span.classList.add("error");
+            span.classList.remove("check");
+            checkList["inputId"] = false;
+        }
+        });
+    </script>
+    </body>
+</html>

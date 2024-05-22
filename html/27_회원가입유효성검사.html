@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입 유효성 검사</title>
+  </head>
+  <style>
+    .check {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+  <body>
+    <!--
+    - 이름 한글 2자~5자 (단모음, 단자음 제외)
+
+-->
+    <h2>회원가입</h2>
+    <form action="#" name="signupForm">
+      <h3>이름</h3>
+      <input type="text" class="signup-input" id="inputName" name="user_name" />
+      <br />
+      <span class="input-result">한글2~5자(단모음, 단자음 제외)</span>
+    </form>
+    <script>
+      /* 유효성 여부를 체크해두는 객체 생성*/
+      const checkList = {
+        inputName: false,
+      };
+      const inputName = document.querySelector("#inputName");
+
+      inputName.addEventListener("input", (e) => {
+        //          e(input).target = 이벤트가 발생한 태그(버튼, 입력 필드 등)를 가리킴
+        //          value = 이벤트가 발생한 태그의 값을 가져오기.
+        const value = e.target.value;
+        // Sibling(형제 자매) = brother sister
+        //            <input>      <br>                 <span>
+        const span = e.target.nextElementSibling.nextElementSibling;
+
+        //만약에 입력이 아무것도 안되어있으면 입력X
+        if (value.trim().length == 0) {
+          span.textContent = "한글 2~5(단모음,단자음 제외)";
+          span.classList.remove("check", "error");
+          e.target.value = "";
+          checkList["inputName"] = false;
+          return;
+        }
+        /* 한글 이름을 위한 정규식 검사*/
+        // /^ 정규식 시작
+        // [가-힇] 모든 한글 사용 가능
+        //  {2,5} 2~5글자 까지만 작성 가능
+        // $/ 정규식 종료
+        const 한글정규식 = /^[가-힇]{2,5}$/;
+
+        //만약에 한글이름을 제대로 작성한 경우
+        //  test = value값이 내가 원하는 대로 됐는지 테스트좀 해볼게
+        if(한글정규식.test(value)){
+            span.textContent = "유효한 이름의 형식입니다.";
+            span.classList.add("check");
+            span.classList.remove("error");
+            checkList["inputName"] = true;
+        } else {
+            span.textContent = "유효하지 않은 이름의 형식입니다.";
+            span.classList.add("error");
+            span.classList.remove("check");
+            checkList["inputName"] = false;
+        }
+
+      });
+    </script>
+  </body>
+</html>
