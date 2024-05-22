@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>채팅 프로그램</title>
+    <style>
+      #chat-container {
+        width: 300px;
+        height: 400px;
+        border: 2px solid #ccc;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #chat-box {
+        flex: 1;
+        padding: 10px;
+        /*
+                border : 상하좌우 모두
+                border bottom : 테두리에서 아래
+                border top : 테두리에서 위
+                */
+        border-bottom: 5px solid#ccc;
+        overflow-y: auto;
+      }
+      .message {
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+      .user-message {
+        background-color: lightblue;
+        align-self: flex-end;
+      }
+      .bot-message {
+        background-color: lightpink;
+        align-self: flex-start;
+      }
+      #input-box {
+        display: flex;
+      }
+      #input-box input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-top: 2px solid#ccc;
+      }
+      button {
+        padding: 10px;
+        border: none;
+        background-color: #008bff;
+        color: white;
+        cursor: pointer;
+      }
+
+      button {
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 10px;
+        background-color: antiquewhite;
+      }
+      .숨기기 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>챗봇상담하기</h1>
+
+    <button id="toggle-button" onclick="toggleChat()">채팅시작하기</button>
+    <div id="chat-container" style="display: none">
+      <div id="chat-box"></div>
+      <div id="input-box">
+        <input type="text" id="user-input" placeholder="메세지를 입력하세요" />
+        <button onclick="sendMessage()">보내기</button>
+      </div>
+    </div>
+    <script>
+        메세지보이기(
+            "안녕하세요KH상담봅입니다.","bot"
+        )
+      function toggleChat() {
+        const chatContainer = document.getElementById("chat-container");
+        const toggleButton = document.getElementById("toggle-button");
+        //chatContainer.style.display==""
+        // 초기값이 빈 문자열 일 수 있기 때문
+        if (
+          chatContainer.style.display == "none" ||
+          chatContainer.style.display == ""
+        ) {
+          chatContainer.style.display = "flex";
+          toggleButton.textContent = "채팅숨기기";
+        } else {
+          chatContainer.style.display = "none";
+          toggleButton.textContent = "채팅보이기";
+        }
+      }
+      function sendMessage() {
+        const inputbox = document.getElementById("user-input");
+        const message = inputbox.value.trim();
+        if (message == "") {
+          return;
+        }
+        메세지보이기(message, "user");
+        inputbox.value = "";
+
+        setTimeout(() => {
+          메세지보이기("저는 채팅봇입니다.", "bot");
+        }, 1000);
+      }
+
+      function 메세지보이기(message, sender) {
+        const chatbox = document.getElementById("chat-box");
+        const messageElement = document.createElement("div");
+
+        messageElement.classList.add("message", sender + "-massage");
+        messageElement.textContent = message;
+        chatbox.appendChild(messageElement);
+      }
+    </script>
+  </body>
+</html>
