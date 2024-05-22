@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*body 안에서 가운데로 정렬하기*/
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+#chat-container {
+width: 300px;
+height: 400px;
+border: 2px solid #ccc;
+display: flex;
+/*div 안에서 가운데로 정렬하기*/
+justify-content: center;
+/*
+    div 안에서 오른쪽 끝으로 정렬하기
+    justify-content: space-between;
+    */
+/* div 안에서맨 밑으로 내리기*/
+flex-direction: column;
+margin-top: 10px;
+}
+#chat-box {
+flex: 1;
+padding: 10px;
+border-bottom: 5px solid #ccc;
+/* overflow-y 상하로 내용이 넘칠 때 어떻게 보이는지 선택하는 속성 
+       overflow-x 좌우로 내용이 넘칠 때 어떻게 보이는지 선택하는 속성*/
+overflow-y: auto;
+}
+.message {
+padding: 5px;
+margin-bottom: 10px;
+border-radius: 5px;
+}
+.user-message {
+background-color: lightblue;
+/*
+    align-self : 안에 있는 태그들 정렬 상태 설정
+    flex-end : 태그를 맨 끝부분(아래쪽 또는 오른쪽) 정렬
+    */
+align-self: flex-end;
+}
+.bot-message {
+background-color: lightpink;
+/*
+    align-self : 안에 있는 태그들 정렬 상태 설정
+    flex 태그의 축 정렬을 설정
+    flex-end로 끝나는 태그 밑에 맨 첫번째로 텍스트를 넣어주겠다.
+    flex-start : 태그를 맨 시작부분(위쪽 또는 왼쪽) 정렬
+    */
+align-self: flex-start;
+}
+
+#input-box {
+display: flex;
+}
+#input-box input {
+flex: 1;
+padding: 10px;
+border: none;
+border-top: 2px solid #ccc;
+}
+button {
+padding: 10px;
+border: none;
+background-color: #007bff;
+color: white;
+cursor: pointer;
+}
+button:hover {
+background-color: #0056b3;
+}

@@ -3,48 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>토글 toggle</title>
-    <style>
-        #토글박스{
-            width: 200px;
-            height: 200px;
-            background-color: aliceblue;
-            border: 2px solid lightpink;
-            text-align: center;
-            line-height: 200px;
-        }
-        button{
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 10px;
-            background-color: antiquewhite;
-        }
-        button:hover{
-            background-color: black;
-            color: white;
-        }
-        .추가할클래스 {
-            display: none;
-        }
-    </style>
+    <style rel="stylesheet" href="../css/18_토글.css"></style>
   </head>
   <body>
     <h1>박스 보이고 숨기기</h1>
     <div id="토글박스">글자보이기</div>
-    <button onclick="보이기숨기기()">토글 클릭하기</button><!--button을 사용하지 않고 한번에 끝낼 때 사용-->
-  <script>
-     function 보이기숨기기(){
-        const 박스 = document.getElementById("토글박스");
-        // 클래스 목록에 hidden 클래스가 포함되어 있는지 확인
-        if(박스.classList.contains("추가할클래스")){
-            //만약에 존재한다면 hidden을 지워줘
-            박스.classList.remove("추가할클래스");
-        } else {
-            //hidden이 존재하지 않는다면 추가하기
-            박스.classList.add("추가할클래스");
-        }
-     }
-  </script>
-
-</body>
+    <button onclick="보이기숨기기()">토글 클릭하기</button
+    ><!--button을 사용하지 않고 한번에 끝낼 때 사용-->
+  </body>
+  <script src="../js/18_토글.js"></script>
 </html>

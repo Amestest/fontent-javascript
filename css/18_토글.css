@@ -1,0 +1,22 @@
+#토글박스{
+    width: 200px;
+    height: 200px;
+    background-color: aliceblue;
+    border: 2px solid lightpink;
+    text-align: center;
+    line-height: 200px;
+}
+button{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: antiquewhite;
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+.추가할클래스 {
+    display: none;
+}
