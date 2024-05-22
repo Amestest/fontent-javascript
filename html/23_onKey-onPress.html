@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>이벤트 리스너 사용하기</title>
+  </head>
+  <body>
+    <h1>KH 항공 가입하기</h1>
+    <pre>
+    여권에서 영어이름을 작성할 때 대문자로 표기
+    항공사에서도 영어이름 작성하세요 할 때 자동으로 작성된 영어이름이 대문자로 작성됨
+    </pre>
+    이름(영문) : <input type="text" id="영문이름" onkeyup="기능만들기()">
+    <script>
+        //toLowerCase() : 영어를 모두 소문자로 변경
+        //toUpperCase() : 영어를 모두 대문자로 변경
+        function 기능만들기(){
+            const 기능 = document.getElementById("영문이름");
+            기능.value = 기능.value.toUpperCase();
+        }
+    </script>
+    <h1>onkeypress - enter 키</h1>
+    <p>input이나 textarea 에 값을 입력 후 enter를 누르면 버튼을 따로 클릭하지 않아도 클릭한 것처럼 작동</p>
+    <input type="text" onkeypress="엔터기능()">
+    <script>
+      function 엔터기능(){
+        alert("입력한 내용이 전달되었습니다.");
+      }
+    </script>
+  </body>
+</html>

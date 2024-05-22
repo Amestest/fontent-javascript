@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>$</title>
+  </head>
+  <body>
+    <h1>$</h1>
+    <pre>
+            $ 기호는 주로 jQuery 에서 사용되는 기호
+            HTML 문서를 탐색하고 조작하는데 사용
+
+            $ 기호를 jQuery 에서 사용하지 않을 때는 
+            키보드에서 ! 왼쪽에 있는 `(백틱) 안에서 사용될 때는
+            문자열 내에 변수나 표현식을 삽입할 수 있음
+            사용방법 `(백틱)  ${변수명}(백틱)`
+        </pre
+    >
+    <button type="button" onclick="알림띄우기()">버튼</button>
+    <script>
+      function 알림띄우기() {
+        //변수선언
+        const num = 10;
+        const str = "양수";
+
+        // $ 사용해서 메세지 생성
+        const msg = `${num} 은/는 ${str} 입니다.^0^`;
+        /* 
+        const msg = `${num} 은/는 ${str} 입니다.^0^`;
+            ${변수명} 을 작성 후 `(백틱) 이 아닌 ""나 '' 를 사용하면 글자처럼 읽기 때문에
+            ${변수명}을 작성한 의미가 없음
+        */
+        alert(msg);
+      }
+    </script>
+  </body>
+</html>

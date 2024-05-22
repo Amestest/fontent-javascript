@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>이벤트</title>
+    </head>
+    <body>
+        <h1>이벤트(Event)</h1>
+
+        <pre>
+            * 이벤트 : 동작, 행위
+            -> 브라우저에서 할 수 있는 동작
+
+            ex) click, keydown, keypress, keyup, mouseover, 
+                mouseon, mouseout, mouseleave,
+                drag, change, submit, ...
+                ->위와 같은 방법은 id 작성 후 script 코드 작성
+                button.addEventListener("click,function()"{
+                    alert("버튼이 클릭되었습니다.");
+                })
+        </pre>
+        <h1>이벤트 리스너(Event Listener)</h1>
+        <pre>
+            브라우저(웹 화면)가 이벤트가 감지 될 때 까지 대기하다가
+            감지가 되었을 때 연결된 기능(함수)를 수행하는 것
+
+            - 이벤트 리스너는 on이벤트명 형식으로 작성됨
+
+            ex) onclick, onchange, onsubmit, onkeyup, ....
+            function 기능명(){
+                alert("버튼이 클릭되었습니다.");
+            }
+        </pre>
+    </body>
+</html>
