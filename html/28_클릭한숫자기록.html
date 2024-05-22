@@ -67,7 +67,8 @@
       <div class="number">7</div>
       <div class="number">8</div>
       <div class="number">9</div>
-      <div class="number">10</div>
+      <!--숫자 게임에는 10이 없음-->
+      <div class="number">0</div>
     </div>
     <div>
       클릭한숫자 : <span id="result"></span>
@@ -75,7 +76,7 @@
       <button id="resultBtn">초기화</button>
     </div>
     <script>
-      const number = document.querySelectorAll(".number");
+      const numbers = document.querySelectorAll(".number");
       const result = document.querySelector("#result");
 
       /*
@@ -103,9 +104,27 @@
             if(result.textContent.length === 10){
                 alert("10글자까지만 쓸 수 있습니다.");
                 return;
-            }else{
+            }
+
+            //이미 선택한 숫자일 경우 다시 선택하지 못하도록 처리
+            if(e.target.classList.contains("active")){
+                alert("이미 선택된 숫자입니다.");
+                return;
+            }
+            //숫자 결과에 클릭한숫자들 모두 += 옆에다가 담아두기
             result.textContent += e.target.textContent;
-            }//숫자 결과에 클릭한숫자들 모두 += 옆에다가 담아두기
+            
+            //선택된 숫자에 active
+            e.target.classList.add("active");
+
+
+            //10일 경우에는 한개 지워주기
+            if(result.textContent.length === 10){
+                for (let item of numbers) {
+                    item.removeEventListener("clikc", handleClick);
+                }
+                console.log("더 이상 숫자를 선택할 수 없습니다.");
+            }
         });
       }
 
