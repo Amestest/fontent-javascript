@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>보이기 숨기기</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script>
+            function 숨기기(){
+                $("#텍스트").hide();
+            }
+            function 보이기(){
+                $("#텍스트").show();
+            }
+        </script>
+    </head>
+    <body>
+        <p id="텍스트">이 텍스트를 보이고 숨기자!</p>
+        <button onclick="숨기기()">숨기기</button>
+        <button onclick="보이기()">보이기</button>
+    </body>
+</html>

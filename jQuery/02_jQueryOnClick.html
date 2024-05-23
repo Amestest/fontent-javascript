@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>제이쿼리 온 클릭</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.1.js"></script>
+        <style>
+            #인사하기 {
+                width: 500px;
+                height: 500px;
+                background-color: pink;
+            }
+        </style>
+        <script>
+            function 배경색변경(){
+                $("#인사하기").css("background-color","silver");
+            }
+            function 글자색변경(){
+                $("#인사하기").css("color","lightblue");
+            }
+            function 초기화(){
+                $("#인사하기").css("background-color","white");
+                $("#인사하기").css("color","black");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="인사하기">
+            안녕하세요.
+        </div>
+        <button onclick="배경색변경()">배경색변경</button>
+        <button onclick="글자색변경()">글자색변경</button>
+        <button onclick="초기화()">초기환</button>
+    </body>
+</html>

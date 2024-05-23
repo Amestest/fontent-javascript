@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제이쿼리 개요</title>
+</head>
+<body>
+    <pre>
+        자바스크립트 언어를 간편하게 사용할 수 있도록 단순화시킨
+        오픈 소스 기반의 자바스크립트 라이브러리
+        사용방법
+        1) 다운로드 : 제이쿼리 홈페이지에서 다운로드
+            <a href="https://jquery.com/">제이쿼리 다운로드하기</a>
+            <script scr="파일이위치한경로/제이쿼리파일명.js"></script>
+            <script scr="jQuery.3.7.1.js"></script>
+        2) CDN(주소참조활용) : Content Delivery network
+            <script src="https://code.jquery.com/jquery-버전.js"></script>    
+            <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+            
+        [기본문법]
+        1. id 문법
+        $(document).ready(function(){ //문서에서 어떤 행동을 할 준비가 되어있다.
+            $("#아이디이름").click(function(){ //아이디이름을 클릭했을 때 할 동작
+                동작에 관련된 코드 작성
+            })
+        })
+        2. 이벤트리스너 문법 (onclick, keyon, onchange ...)
+        function 이벤트리스너에 작성한이름(){
+            $("#아이디명").기능작성();
+        }
+
+        [선택자문법]
+        1. css 선택
+            $("태그명이나 #아이디명 .클래스명").css("배경",색상);
+        2. toggle 선택 사용
+            $("태그명이나 #아이디명 .클래스명").toggle("속도조절"); //속도생략가능
+        3. slideToggle 선택 사용
+            토글과 비슷하나 주로 이미지를 보이고 숨길 때 사용
+        4. hide() show() 선택 사용
+            보이기 숨기기
+        5. append() 선택 사용
+            태그나 값을 추가할 때 사용
+        
+    </pre>
+</body>
+</html>

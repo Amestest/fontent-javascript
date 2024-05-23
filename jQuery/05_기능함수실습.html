@@ -1,0 +1,35 @@
+<!--
+
+toggle 이용해서 보이고 숨기는 기능 작성하기
+
+<div id="문구모음">
+<h1>명언들</h1>
+<p>노력에 집착하라. 숙명적인 노력을</p>
+<p>할 수 있다고 믿는 사람은 결국 그렇게 된다.</p>
+<p>당신이 포기할 때, 나는 시작한다.</p>
+</div>
+<button onclick="문구숨기기()">문구숨기기</button>
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>기능함수실습</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        function 문구숨기기(){
+            $("#문구모음").toggle();
+        }
+        
+    </script>
+  </head>
+  <body>
+    <div id="문구모음">
+      <h1>명언들</h1>
+      <p>노력에 집착하라. 숙명적인 노력을</p>
+      <p>할 수 있다고 믿는 사람은 결국 그렇게 된다.</p>
+      <p>당신이 포기할 때, 나는 시작한다.</p>
+    </div>
+    <button onclick="문구숨기기()">문구숨기기</button>
+  </body>
+</html>
