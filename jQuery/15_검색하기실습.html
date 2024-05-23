@@ -9,7 +9,7 @@
         $("#검색박스").keyup(function () {
           const 검색박스 = $(this).val();
           var 검색결과확인 = false;
-          $("li").each(function () {
+          $("#옷리스트 li").each(function () {
             var text = $(this).text();
             console.log(" **************************** ");
             console.log(text); //자바에서 system.out.print같은 존재

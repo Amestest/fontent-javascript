@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta charset="UTF-8">
+<title>폰기종검색하기</title>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script>
+    $(documet).ready(function(){
+        $('#검색박스').keyup(function(){
+            
+        })
+    })
+</script>
+<style>
+    .컨테이너 {
+      width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    #검색박스 {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 15px;
+      border-bottom: 1px solid#ccc;
+      background-color: white;
+    }
+    body {
+      background-color: aliceblue;
+    }
+    #검색결과 {
+      display: none; /*검색결과 없습니다. 숨기기*/
+    }
+  </style>
+    </head>
+    <body>
+        <h1>KH 통신사</h1>
+        <div class="컨테이너">
+          <input type="text" id="검색박스" placeholder="폰기종검색하기" />
+          <ul id="기종리스트">
+            <li>Galaxy S21</li>
+            <li>iPhone 12</li>
+            <li>Google Pixel 5</li>
+            <li>OnePlus 9</li>
+            <li>Xiaomi Mi 11</li>
+            <li>LG Velvet</li>
+          </ul>
+    </body>
+</html>
