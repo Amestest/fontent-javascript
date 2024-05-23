@@ -40,7 +40,25 @@
             보이기 숨기기
         5. append() 선택 사용
             태그나 값을 추가할 때 사용
-        
+        6. val() 
+            input textarea select 같은 폼의 태그의 값을 가지고오거나
+            설정하는데 사용방법
+            값을 가져올 때 $(태그명, #아이디명, .클래스명).val()
+                       -> $("input").val("새로운 값 설정")
+                       -> $(#아이디명).val("새로운 값 설정")
+                       -> $(.클래스명).val("새로운 값 설정")
+        7. this
+            현재 실행 중인 함수(태그)의 문맥을 나타냄
+            this 이벤트가 발생한 태그를 참조
+            $("#인풋필드").on("input",function(){
+                console.log(this); // 이벤트가 발생한 input 태그를 바라봄
+            })
+        8. on()
+            이벤트 기능 하나 이상의 이벤트를 처리
+            $(태그명, #아이디명, .클래스명).on(event,function(){
+
+            })
+            event 에 속하는 유형 : click input mouseover mouseenter
     </pre>
 </body>
 </html>

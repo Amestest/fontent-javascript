@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>비밀번호와 비밀번호 확인 일치여부 체크하기</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#passwordConfirm").on("input", function () {
+          //비밀번호 값 가져오기
+          const password = $("#password").val();
+          //새로운 비밀번호 값 가져오기
+          const passwordConfirm = $(this).val();
+
+          //비밀번호 일치 여부 확인
+          if (password === passwordConfirm) {
+            $("#msg").text("비밀번호가 일치합니다.").css("color", "green");
+          } else {
+            $("#msg").text("비밀번호가 일치하지 않습니다.").ccs("color", "red");
+          }
+        });
+        $("#password").on("input", function () {
+          const 비밀번호 = $(this).val();
+          const 정규식 = /^[a-z]{8,}$/; //소문자 8자리이상 작성가능
+
+          //만약에 비밀번호가 정규식에 적합한지 테스트 했을때 적합하다면
+          if (정규식.test(비밀번호)) {
+            $("#정규식메세지")
+              .text("비밀번호 형식이 올바릅니다.")
+              .css("color", "green");
+          } else {
+            $("#정규식메세지")
+              .text("비밀번호는 최소 8자 이상이어야하며, 소문자만 가능합니다.")
+              .css("color", "red");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label>비밀번호 : </label>
+    <input type="password" id="password" required /><br />
+
+    <p id="정규식메세지"></p>
+
+    <label>비밀번호확인 : </label>
+    <input type="password" id="passwordConfirm" required /><br />
+    <p id="msg"></p>
+  </body>
+</html>

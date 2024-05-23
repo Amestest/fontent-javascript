@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>비밀번호 정규식 검사</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#비밀번호").on("input", function () {
+          const 비밀번호 = $(this).val();
+          const 정규식 = /^[a-z]{8,}$/; //소문자 8자리이상 작성가능
+
+          //만약에 비밀번호가 정규식에 적합한지 테스트 했을때 적합하다면
+          if (정규식.test(비밀번호)) {
+            $("#정규식메세지")
+              .text("비밀번호 형식이 올바릅니다.")
+              .css("color", "green");
+          } else {
+            $("#정규식메세지")
+              .text("비밀번호는 최소 8자 이상이어야하며, 소문자만 가능합니다.")
+              .css("color", "red");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <labal>비밀번호 : </labal>
+    <input type="password" id="비밀번호" required />
+    <br />
+    <p id="정규식메세지"></p>
+  </body>
+</html>
