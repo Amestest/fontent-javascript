@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>옷 검색하기</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#검색박스").keyup(function () {
+          const 검색박스 = $(this).val();
+          var 검색결과확인 = false;
+          $("li").each(function () {
+            var 텍스트 = $(this).text();
+            if (텍스트.indexOf(검색박스) === -1) {
+              $(this).hide("검색한 내용이 없습니다.");
+            } else {
+              $(this).show();
+              검색결과확인 = true;
+            }
+          });
+          //만약에 검색한 결과가 있으면 검색 겨로가가 없습니다를 숨기고
+          if (검색결과확인) {
+            $("#검색결과").hide();
+          } else {
+            $("#검색결과").show();
+          }
+          //검색한 결과가 없으면 보여줌
+        });
+      });
+    
+      $(document).ready(function () {
+        $("#검색박스").keyup(function () {
+          const 검색박스 = $(this).val(); //input에서 검색한 내용 가져오기
+          $("li").each(function () {
+            //for - each 처럼 반복문
+            var 텍스트 = $(this).text();
+            //indexOf 는 배열에서 특정 태그의 자리값을 찾는데 사용
+            // index 0부터 시작 -1은 없는 값이기 때문에
+            if (텍스트.indexOf(검색박스) === -1) {
+              $(this).hide();
+            } else {
+              $(this).show();
+            }
+          });
+        });
+      });
+    </script>
+    <style>
+      .컨테이너 {
+        width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      #검색박스 {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        padding: 15px;
+        border-bottom: 1px solid#ccc;
+        background-color: white;
+      }
+      body {
+        background-color: aliceblue;
+      }
+      #검색결과 {
+        display: none; /*검색결과 없습니다. 숨기기*/
+      }
+    </style>
+  </head>
+  <body>
+    <h1>KH 옷가게</h1>
+    <div class="컨테이너">
+      <input type="text" id="검색박스" placeholder="찾는 옷 검색하기" />
+      <ul id="옷리스트">
+        <li>청바지</li>
+        <li>셔츠</li>
+        <li>니트</li>
+        <li>슬랙스</li>
+        <li>하와이안슬랙스</li>
+        <li>반바지</li>
+        <li>7부반바지</li>
+        <li>긴팔니트</li>
+        <li>점프수트</li>
+        <li>원피스</li>
+      </ul>
+    </div>
+  </body>
+</html>
