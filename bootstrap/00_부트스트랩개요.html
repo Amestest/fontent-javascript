@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>부트스트랩 개요</title>
+  </head>
+  <body>
+    <h1>부트스트랩(bootstrap)</h1>
+    <pre>
+            트위터에서 개발한 오픈 소스 프론트엔드 프레임워크
+            반응형 웹 디자인
+            
+            부트스트랩은 프레임워크 이기 때문에 어느정도 기본 스타일은 제공해주지만
+            추가적인 스타일이 필요할 경우 css 를 사용해서 디자인을 만들어줘야함
+            <a href="https://getbootstrap.kr/">부트스트랩으로 이동하기</a> 
+            
+            [사용방법 -  둘 다 필수로 사용하기]
+            부트스트랩 css 적용하기
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+            부트스트랩 js 적용하기
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        
+            integrity 이란?
+                - 링크를 안전하게 가져오기 위해 설정하는 속성 (필수는 아니지만 보안, 신뢰성을 위해 사용하는 것이 좋음)
+            crossorigin 이란?
+                - anonymous 자격 증명을 포함하지 않도록 설정 (필수는 아니지만 보안, 신뢰성을 위해 사용하는 것이 좋음)    
+        </pre>
+    <h3>라이브러리와 프레미워크 차이</h3>
+    <pre>
+            라이브러리 vs 프레임워크
+            
+            라이브러리 = 샤브샤브뷔페
+                -> 개발자가 개발을 하는데 있어 사용범위가 더 넓음
+            프레임워크 = 밀키트
+                -> 개발자가 개발을 하는데 있어 사용범위가 제한적임
+
+        </pre
+    >
+    <h3>class 사용 방법 정리</h3>
+    <pre>
+            container : 반응형 고정 폭 을 제공하는 역할
+                        페이지 콘텐츠를 정렬하고 중앙에 배치
+                        기본적으로 페이지의 양 옆에 여백을 줘서 콘텐츠를 중앙에 정렬
+            row       : container에서 가로 한 줄을 나타냄
+                        가로 한 줄은 col-12 로 이루어져 있음
+                        가로 한 줄은 col이 12를 초과할 경우
+                        다음 줄로 자동으로 이동
+
+            col       : row(가로 한 줄) 에서 세로로 몇 칸을 차지할 것인지 표현
+                    col-1 : 세로로 중간사이즈로 1칸
+                    col-xs-1 : 세로로 가장 작은 사이즈로 1칸 차지
+
+                    col-4 : 가로 한 줄에서 4칸을 차지하게되며
+                            가로 한 줄은 총 12칸이기 때문에 여유 칸은 8칸이 됨
+            <!-- 첫 번째 가로줄은 4:4:4 이루어진 공간-->
+            <div class="row"><!--row는 총 12칸-->
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+            </div>
+            <!-- 두 번째 가로줄은 6:6 이루어진 공간-->
+            <div class="row"><!--row는 총 12칸-->
+                <div class="col-6"></div>
+                <div class="col-6"></div>
+                
+            </div>
+
+            card : 부트스트랩에 있는 카드 스타일을 적용
+            card-body : 카드 본문 틀 틀 안에 img나 title이나 text 등을 넣어줌
+            card-title : 카드 본문에서 제목을 나타냄
+                            제목 스타일을 적용
+            card-text : 카드에서 내용을 작성하는 공간
+                            텍스트 스타일을 적용
+            card-img-위치 : card 에 있는 img 위치를 적용
+                            img가 카드 바깥으로 나가는 것을 방지
+                            카드 틀 안에 img가 있을 수 있도록 도와줌
+                            width / height 사용하지 않아도 됨
+                            card-img-top : 이미지를 위에 배치
+                            card-img-bottom : 이미지를 아래에 배치
+            img 설정하기
+                img-fluid : col이나 특정 가로 크기에 맞게 조정
+                        col- 4 img-fluid
+                        4칸 기준으로 이미지크기가 딱 맞게 들어가짐
+                        width : 100% height : auto
+                img-thumbnail : 이미지에 테두리와 패딩을 추가해서 썸네일 이미지 스타일 느낌을 적용
+
+                rounded : 이미지의 모서리를 둥글게 만듦
+                            border-radius : 25rem
+                rounded-circle : 이미지를 가볍게 원형
+                            border-radius : 50%
+                rounded-pill : 이미지 모서리를 완전히 둥글게 만듦
+                            border-radius : 50rem
+        </pre>
+  </body>
+</html>
