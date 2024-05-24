@@ -10,36 +10,41 @@
       crossorigin="anonymous"
     />
     <style>
-        .card-img-top{
-            /*object-fit: 이미지나 비디오를 틀 안에 어떻게 맞춰서 작성할 지 선택
+      .card-img-top {
+        /*object-fit: 이미지나 비디오를 틀 안에 어떻게 맞춰서 작성할 지 선택
               cover : 이미지나 비디오의 틀의 비율을 유지하면서 틀에 완진히 채워지도록 조정
                */
-            object-fit: cover;
-            height: 200px;
-
-        }
+        object-fit: cover;
+        height: 200px;
+      }
     </style>
   </head>
   <body>
     <!--네비게이션 바-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">브랜드위치</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span><!--나중에 네이게이션바 아이콘 위치-->
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav link" href="#">게시판</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav link" href="03_이미지갤러리.html">이미지 갤러리</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="#">브랜드위치</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span
+        ><!--나중에 네이게이션바 아이콘 위치-->
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">게시판</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="03_이미지갤러리.html">이미지 갤러리</a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <div class="container">
       <!--전체틀-->
@@ -71,7 +76,6 @@
         <div class="col-md-4">
           <!--col = 세로 md 중간사이즈 4칸 차지-->
           <div class="card">
-           
             <div class="card-body">
               <img src="../bootstrap/이미지들/pig.jpg" class="card-img-top" />
               <h5 class="card-title">카드타이틀</h5>
@@ -85,7 +89,10 @@
         <div class="col-md-3">
           <div class="card">
             <div class="card-body">
-              <img src="../bootstrap/이미지들/hogam.jpg" class="card-img-top mt-4" />
+              <img
+                src="../bootstrap/이미지들/hogam.jpg"
+                class="card-img-top mt-4"
+              />
               <h5 class="card-title">호감이</h5>
               <p class="card-text">호감이는 귀엽다</p>
               <a href="#" class="btn btn-success">더보기</a>
