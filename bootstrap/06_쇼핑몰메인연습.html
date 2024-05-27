@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>옷 판매 사이트</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .footer {
+        background-color: #212529;
+        color: white;
+        padding: ;
+      }
+      .footer a {
+        color: white;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!--네비게이션바-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!--세로로 나열된것 모두 가로로 한줄 정렬-->
+        <a class="navbar-brand" href="#">옷 판매 사이트</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span
+          ><!--나중에 네이게이션바 아이콘 위치-->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- ms : margin-start auto 왼쪽에 여백을 최대한 많이 제공-->
+          <ul class="navbar-nav ms-auto">
+            <!--모든 태그를 가능한 오른쪽으로 정렬-->
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">cart<span class="badge bg-secondary">0</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="03_이미지갤러리.html">이미지 갤러리</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--컨테이너 (상품 정보 보기 작성)-->
+    <div class="container mt-5">
+      <h2>상품 목록</h2>
+      <div class="row">
+        <!--row의 세로 크기는 col에 의해 결정-->
+        <div class="col-md-4">
+          <!-- col 은 한 row 에서 12칸으로 존재-->
+          <!--디자인을 예쁘게 꾸며주는 클래스명으로 card 존재-->
+          <div class="card">
+            <img src="../bootstrap/이미지/상의.png" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">여름 셔츠</h5>
+              <p clall="card-text">\30,000</p>
+              <button class="btn btn-outline-success">상세보기</button>
+              <button class="btn btn-dark">장바구니에 추가</button>
+            </div>
+          </div>
+        </div>
+        <!--위에서 col을 미디움 사이즈로 4칸 차지하겠다 작성해줬기 때문에 앞으로는 row 안에 작성할 수 있는 col의 칸은 8칸 남은것-->
+        <div class="col-md-4">
+          <!-- col 은 한 row 에서 12칸으로 존재-->
+          <!--디자인을 예쁘게 꾸며주는 클래스명으로 card 존재-->
+          <div class="card">
+            <img src="../bootstrap/이미지/여름상의.png" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">gkdhkdldks 셔츠</h5>
+              <p clall="card-text">\30,000</p>
+              <button class="btn btn-outline-success">상세보기</button>
+              <button class="btn btn-dark">장바구니에 추가</button>
+            </div>
+          </div>
+        </div>
+        <!--col 세로칸이 한 가로줄(row)에서 총 12칸 중 8칸을 차지 했기 때문에
+남은 col 칸은 4칸
+-->
+        <div class="col-md-4">
+          <!-- col 은 한 row 에서 12칸으로 존재-->
+          <!--디자인을 예쁘게 꾸며주는 클래스명으로 card 존재-->
+          <div class="card">
+            <img src="../bootstrap/이미지/여름상의.png" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">gkdhkdldks 셔츠</h5>
+              <p clall="card-text">\30,000</p>
+              <button class="btn btn-outline-success">상세보기</button>
+              <button class="btn btn-dark">장바구니에 추가</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--두번째 가로줄 생성하기-->
+      <div class="row">
+        <!--두 번째 가로줄 생성-->
+        <div class="col-md-4">
+          <!--두 번째 가로줄에서 세로로 4칸 중간사이즈로 차지하기-->
+          <div class="card">
+            <img src="../bootstrap/이미지/바지.png" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">
+                <span><mark>5차 리오더</mark></span
+                >summer 5부 팬츠
+              </h5>
+              <p class="card-text">\30,000</p>
+              <button class="btn btn-dark">상세보기</button>
+              <button class="btn btn-success">장바구니에 추가</button>
+            </div>
+          </div>
+        </div>
+        <!--col 12칸 중에서 위에서 4칸을 사용했기 때문에 8칸 남음-->
+        <div class="col-md-4">
+          <!--두 번째 가로줄에서 세로로 4칸 중간사이즈로 차지하기-->
+          <div class="card">
+            <img src="../bootstrap/이미지/바지.png" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">
+                <span><mark>5차 리오더</mark></span
+                >summer 5부 팬츠
+              </h5>
+              <p class="card-text">\30,000</p>
+              <button class="btn btn-dark">상세보기</button>
+              <button class="btn btn-success">장바구니에 추가</button>
+            </div>
+          </div>
+        </div>
+        <!--col 12칸 중에서 위에서 8칸을 사용했기 때문에 4칸 남음-->
+        <div class="col-md-4">
+          <!--두 번째 가로줄에서 세로로 4칸 중간사이즈로 차지하기-->
+          <div class="card">
+            <img src="../bootstrap/이미지/바지.png" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">
+                <span><mark>5차 리오더</mark></span
+                >summer 5부 팬츠
+              </h5>
+              <p class="card-text">\30,000</p>
+              <button class="btn btn-dark">상세보기</button>
+              <button class="btn btn-success">장바구니에 추가</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer mt-5">
+      <div class="container text-center">
+        <p>&copy; 2024 브랜드명. All Right Reserved.</p>
+        <p><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a></p>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
