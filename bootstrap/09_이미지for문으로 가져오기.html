@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>이미지 여러장 for문으로 가져오기</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    </head>
+    <body>
+        <h2>사진 업로드</h2>
+        <label>사진선택</label>
+        <!-- accept : 선택한 파일만 가져올 수 있음
+             image : 이미지에 해당하는 파일만 가져올 수 있음
+                     jpg png bmp gif ... * 모두 가능
+                gif 움직이는 이미지만 가능하게 하고 싶다면
+                    image/gif
+                png jpg jpeg 이미지만 가능하게 하고 싶다면
+                    image/png, image/jpg, image/jpeg
+                비디오 중에서 mp4 파일과 오디오 파일 중에서 mp3 만 가능하게 하고 싶다면
+                    accept=".mp4, .mp3" 또는 accept="*.mp4,*.mp3"
+        -->
+        <input id="이미지가져오기" type="file" accept="image/*" multiple>
+
+        <!-- input 에서 가져온 이미지를 미리보기로 보여주기-->
+        <!-- 다중 이미지를 여러장 담을 수 있는 div 태그를 활용해서 여러 이미지 보여주기-->
+        <div id="이미지미리보기">
+            <!--추후 img 태그가 보여질 예정-->
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#이미지가져오기").change(function(){ //input 태그 바라보기
+                    const 파일들 = this.files; //input에서 선택한 이미지들 가져오기
+
+                    //기존에 선택된 이미지가 존재한다면 이미지를 없애고 새로 선택한 이미지들 가져오기
+                    $("#이미지미리보기").empty;
+                    //만약에 이미지를 가져온 것이 존재한다면!!!
+                    if(파일들){
+                        // for문을 활용해서 이미지 가져오기 length를 활용해서 가져오기
+                        //   const = 상수 같은 존재 => 값이 변하지 못함
+                        // for문에서 주로 사용하는 자료형은 let = 변수같은 존재
+                        // 선택된 파일들의 개수  파일들.length
+                        for(let i = 0; i<파일들.length; i++){
+                            const filse = 파일들[i]; //i가 0번째부터 최대갯수 -1 한 파일까지 모두 가져오기
+                            const 파일읽기 = new FileReader();
+
+                            //파일 가져왔으면 파일을 읽고 보여주기 시작!
+                            파일읽기.onload = function(e){
+                                //div 안에서 img를 생성할 준비 시작 생성된(가져온) 이미지 src 주소결과 보여주기
+                                const 이미지태그생성 = $('<img>').attr('src',e.target.result);
+                                // 이미지 미리보기 div에 생성된 이미지 추가
+                                $("#이미지미리보기").append(이미지태그생성);
+                            }
+                            //최종으로 사람들 눈에 이미지 보여지게 만들어줌
+                            파일읽기.readAsDataURL(file);
+                        }
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>

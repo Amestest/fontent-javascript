@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>이미지 글 작성하기</title>
+        <!--jQuery bootstrap-->
+        <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <style>
+        .이미지프리뷰 {
+            width: 200px;
+            margin: 5px;
+        }
+    </style>
+    </head>
+    <body>
+        <!-- 네비게이션-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <!--세로로 나열된것 모두 가로로 한줄 정렬-->
+              <a class="navbar-brand" href="#">옷 판매 사이트</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+              >
+                <span class="navbar-toggler-icon"></span
+                ><!--나중에 네이게이션바 아이콘 위치-->
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- ms : margin-start auto 왼쪽에 여백을 최대한 많이 제공-->
+                <ul class="navbar-nav ms-auto">
+                  <!--모든 태그를 가능한 오른쪽으로 정렬-->
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">shop</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">cart<span class="badge bg-secondary">0</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="03_이미지갤러리.html">이미지 갤러리</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <!-- 글 작성 공간 container 만들어주기 -->
+        <div class="container">
+            <div class="mb-3">
+                <label class="form-label">제목</label>
+                <input type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">작성자</label>
+                <input type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">내용</label>
+                <textarea class="form-control" rows="5" cols="20" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">이미지 업로드</label>
+                <input id="이미지가져오기" type="file" class="form-control" accept="image/*" multiple>
+            </div>
+            <div id="이미지미리보기" class="mb-3">
+                <!--추후 img 태그가 보여질 예정-->
+            </div>
+        </div>
+        <!-- footer 추가하기-->
+        <script>
+            //이미지 여러장 보여주는 for문 추가
+         $(document).ready(function(){   
+            
+            $("#이미지가져오기").change(function(){
+                const files = this.files;
+                $("#이미지미리보기").empty();
+
+                if(files){
+                    for(let i =0; i < files.length;i++){
+                        const file = files[i];
+                        const fileRead = new FileReader();
+
+                        fileRead.onload = function(e){
+                            const 이미지태그생성 = $("<img>").attr("src",e.target.result).addClass('이미지프리뷰');
+                            $("#이미지미리보기").append(이미지태그생성);
+                        };
+                        fileRead.readAsDataURL(file);
+                    }
+                }
+            });
+        });
+        </script>
+    </body>
+</html>

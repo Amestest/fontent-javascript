@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>프로그래스바 만들기</title>
+        <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous">
+      <!--Jquery-->
+      <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h2>프로그래스 바</h2>
+            <pre>
+                Progress bar : 작업의 진행 상황을 시각적으로 표시하는 것
+                진행하는 상황을 100%로 나타내서 사용자에게 작업이 얼마나
+                완료되었는지 직접적으로 보여줌
+                단계가 있거나 대기시간이 필요한 작업에서 유용
+
+                속성
+                progress : 프로그래스 바의 컨테이너 역할을 함
+                progress-bar : 실제로 진행 상황을 표시하는 부분
+                        -> 부트스트랩에서 기본 색상과 애니메이션 등을 제공
+                aria-valuemin : 진행 시작 % 설정 보통 0%
+                aria-valuemax : 진행 끝 % 설정 보통 100%
+                aria-valuenow : 현재 진행률 현재 작업이 50% 완료다 설정
+                style : 프로그래스 바의 너비 설정
+            </pre>
+
+            <div class="progress">
+                <div id="프로그래스바" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    0%
+                </div>
+                
+                
+            </div>
+            <button id="시작버튼" class="btn btn-primary" onclick="클릭하기()">클릭하기</button>
+        </div>
+        
+        </body>
+        <!--프로그래스 바 전용 script 작성하기-->
+        <script>
+            function 클릭하기(){
+                const 프로그래스바 = $("#프로그래스바"); // 프로그래스바 표시할 div 가져오기
+                let 진행상황확인하기 = 0;
+
+                //setInterval : 일정 시간 간격으로 지정된 작업을 반복적으로 실행하는 js 전용 함수
+                //             타이머나, 애니메이션이나 주기적인 데이터 갱신을 할 때 사용
+                //setInterval(function(){작동할기능작성}, 몇초마다 진행할 것인지 초 설정)
+
+                const 진행간격 = setInterval(function(){
+                    //만약에 100%가 되거나 100% 이상이면 초기화
+                    if(진행상황확인하기 >= 100){
+                        clearInterval(진행간격);
+                    } else {
+                        //100% 미만이라면 ++ 계속 1%씩 진행상황 확인현황을늘려주기
+                        진행상황확인하기++;
+                        프로그래스바.css('width',진행상황확인하기 + "%");
+                        프로그래스바.attr('aria-valuenow', 진행상황확인하기);
+                        프로그래스바.text(진행상황확인하기 + '%');
+                    }
+                },100);
+            }
+        </script>
+    <!--bootstrap js-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+</html>
