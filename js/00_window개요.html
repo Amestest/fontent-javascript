@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>window 내장객체</title>
+    </head>
+    <body>
+        <h1>window 내장 객체</h1>
+        <pre>
+            - 인터넷 창 자체를 나타내는 것을
+
+            - document 위로 document의 부모객체
+
+            - window의 자식 객체
+                DOM(Document Object Model) : document 문서
+                    (브라우저(인터넷)에서 눈으로 보이는 화면)
+                BOM(Brower Object Model) : location history screen navigater
+                    (브라우저(인터넷)에서 DOM의 나머지 부분)
+                    location : 다른 페이지로 이동할 때 사용
+                        reload() : 현재 페이지 새로고침
+                        replace() : 다른 페이지로 이동
+                    history : 사용자가 방문한 페이지 기록을 관리
+                        back() : 이전 페이지로 이동
+                        forward() : 다음 페이지로 이동
+                        go() : 특정 페이지로 이동 음수면 이전페이지 양수면 다음페이지
+                    screen : 사용자 화면에 대한 정보를 알려줌
+                        width() : 화면의 가로 길이 나타냄
+                        height() : 화면의 세로 길이 나타냄
+                    navigater : 화면에 대한 정보를 나타냄 브라우저의 종류나 버전 운영체제 등
+                        브라우저종류 : 크롬인가? 웨일인가? MSedge인가?
+                        브라우저버전 : 몇 버전쓰니?  크롬 3.5 version이니?
+                        운영체제 : window? mac?
+        </pre>
+        <h3> alert, prompt, console, setInterval, clearInterval</h3>
+        <pre>
+            alert : window에 저장된 알림창
+            prompt : window에 저장된 알람창에서 입력가능한 input이 들어간 창
+            console : window에 저장된 눈에 보이지 않는 개발자용 표시창
+                -> log 일반적으로 메세지 출력
+                -> info : 정보 메세지 출력
+                -> warn : 경고 메세지 출력 주로 노란색으로 표시
+                -> error : 오류 메세지 출력 주로 빨간색 배경으로 표시
+                -> clear : 콘솔에 표시된 모든 내용 지우기
+            setInterval : 반복적인 기능 설정
+            clearInterval : 설정한 타이머를 중지 기록을 유지할지 초기화 할지 설정
+        </pre>
+    </body>
+</html>
