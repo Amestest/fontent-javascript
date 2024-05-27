@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>attr 속성 설명</title>
+  </head>
+  <body>
+    <h1>attr</h1>
+    <pre>
+            attr attribute 속성
+            jQuery 에서 HTML 태그 속성을 가져오거나 설정할 때 사용되는 기능
+
+            예제
+            <img 태그>
+            <img src="그림주소값가져오기" alt="그림설명글자로작성" style="그림을꾸며줌;" class="그림클래스작성">
+            src, alt, style, class 모두 attr 해당
+            한마디로
+            attr은 태그 안에 작성도니 속성값을 가져오거나 변경하거나 제거할 때 사용
+
+            1. 태그 안에 있는 속성값 가져오기
+                $("img").attr('src'); //src 안에 있는 그림주소값을 가져오는 것
+            2. 태그 안에 있는 속성값 변경하기
+                $("img").attr('src','변경할주소값설정')
+                //src 안에 기존에 존재했던 주소를 변경할주소값설정으로 변경   
+            3. 태그 안에 있는 속성값을 여러개 변경하기
+                $("img").attr({src:'변경할주소값설정' ,alt:"변경된이미지설명"})    
+        </pre>
+  </body>
+</html>
