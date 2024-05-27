@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>사진올리기</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>사진 업로드</h2>
+      <form id="uploadForm">
+        <div class="mb-3">
+          <label class="form-label">사진 제목</label>
+          <input class="form-control" id="이미지가져오기" type="file" accept="image/*" />
+        </div>
+        <!--input에서 가져온 이미지를 img 태그에서 보여주기-->
+        <div class="mb-3">
+          <img
+            id="이미지보이기"
+            src="#"
+            class="img-fluid d-none"
+          /><!--d-none : display none 으로 엑스박스 표시를 숨기기-->
+        </div>
+        <button type="submit" class="btn btn-primary">업로드</button>
+      </form>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#이미지가져오기").change(function(){ //input 태그 바라보기
+                //file 에는 다양한 파일들이 존재할 수 잇기 때문에 0
+                //보통 파일의 경우에는 다중선택이 가능하다는 보장이 기본으로 설정돼잇음
+                /*
+                에러발생
+                 Cannot read properties of undefined (reading '0')
+                 -> file 대신 files를 사용해야함
+                    file 대신에 files를 사용해야하는 이유 : 
+                        <input type="file"> input 태그가 애초에 다중 파일 업로드를 지원하기 때문에
+                        지금처럼 1개의 파일만 업로드를 할 경우에는
+                        files[0] = 파일들 중에서 1번째로 선택된 파일만 보여주겠다 표기
+                 */
+                const file = this.files[0]; //이미지가져오기 라는 input 태그에 가장 첫번째로 올린 이미지 보이기
+                //만약에 추가한 파일이 존재한다면
+                if(file){
+                    const 파일읽기 = new FileReader();
+                    파일읽기.onload=function(e){
+                        $("#이미지보이기").attr('src',e.target.result).removeClass('d-none');
+                    }
+                    피일읽기.readAsDataURL(file);
+                } else {
+                    $("#이미지보이기").addClass('d-none');
+                };
+            });
+        });
+    </script>
+  </body>
+</html>
