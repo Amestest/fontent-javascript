@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>이미지 여러개 가져오기</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div>
+      <h2>사진 2장 업로드</h2>
+      <form class="row">
+        <div class="col-2">
+          <label>사진 선택</label>
+          <input
+            type="file"
+            id="사진선택"
+            accept="image/*"
+            multiple
+          /><!--multiple 다중선택-->
+        </div>
+        <div class="col-1">
+          <img id="이미지1번" src="#" class="d-none img-fluid" />
+        </div>
+        <div class="col-1">
+          <img id="이미지2번" src="#" class="d-none img-fluid" />
+        </div>
+        <div class="col-1">
+          <img id="이미지3번" src="#" class="d-none img-fluid" />
+        </div>
+        <div class="col-1">
+          <img id="이미지4번" src="#" class="d-none img-fluid" />
+        </div>
+        <div class="col-1">
+          <img id="이미지5번" src="#" class="d-none img-fluid" />
+        </div>
+        <div class="col-1">
+          <img id="이미지6번" src="#" class="d-none img-fluid" />
+        </div>
+        <div class="col-1">
+          <img id="이미지7번" src="#" class="d-none img-fluid" />
+        </div>
+      </form>
+    </div>
+    <script>
+      // 이미지 딱 2장
+      $(document).ready(function () {
+        $("#사진선택").change(function () {
+          //input 태그 바라보기
+          const files = this.files[0]; //선택된 파일들 가져오기
+
+          //만약에 이미지를 가져올 경우
+          if (files) {
+            const 파일읽기1 = new FileReader(); // 파일 읽기생성
+            파일읽기1.onload = function (e) {
+              //이미지1번 태그 이미지에 1번째로 선택한 이미지 보여주기
+              $("#이미지1번")
+                .attr("src", e.target.result)
+                .removeClass("d-none");
+            };
+            파일읽기1.readAsDataURL(files[0]);
+
+            //두 번째 파일 가져와서 보여주기
+            const 파일읽기2 = new FileReader();
+            파일읽기2.onload = function (e) {
+              $("#이미지2번")
+                .attr("src", e.target.result)
+                .removeClass("d-none");
+            };
+            파일읽기2.readAsDataURL(files[1]);
+
+            const 파일읽기3 = new FileReader();
+            파일읽기3.onload = function (e) {
+              $("#이미지3번")
+                .attr("src", e.target.result)
+                .removeClass("d-none");
+            };
+            파일읽기3.readAsDataURL(files[2]);
+
+            const 파일읽기4 = new FileReader();
+            파일읽기3.onload = function (e) {
+              $("#이미지4번")
+                .attr("src", e.target.result)
+                .removeClass("d-none");
+            };
+            파일읽기4.readAsDataURL(files[3]);
+
+            const 파일읽기5 = new FileReader();
+            파일읽기5.onload = function (e) {
+              $("#이미지5번")
+                .attr("src", e.target.result)
+                .removeClass("d-none");
+            };
+            파일읽기5.readAsDataURL(files[4]);
+
+            const 파일읽기6 = new FileReader();
+            파일읽기6.onload = function (e) {
+              $("#이미지6번")
+                .attr("src", e.target.result)
+                .removeClass("d-none");
+            };
+            파일읽기6.readAsDataURL(files[5]);
+
+            const 파일읽기7 = new FileReader();
+            파일읽기7.onload = function (e) {
+              $("#이미지7번")
+                .attr("src", e.target.result)
+                .removeClass("d-none");
+            };
+            파일읽기7.readAsDataURL(files[6]);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

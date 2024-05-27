@@ -9,6 +9,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   </head>
   <body>
     <div class="container">
@@ -46,12 +47,24 @@
                 const file = this.files[0]; //이미지가져오기 라는 input 태그에 가장 첫번째로 올린 이미지 보이기
                 //만약에 추가한 파일이 존재한다면
                 if(file){
+                    // 가져온 파일을 읽기위해 JS 있는 FileReader 기능 가져오기 
                     const 파일읽기 = new FileReader();
+                    // onload => FileReader로 원하는 파일이 읽혔을때 기능 실행
+                    // 만약에 파일읽기가 안되면 onload 기능 자체가 실행되지 않음
                     파일읽기.onload=function(e){
+                        // #이미지보이기 => id 이름이 이미지보이기 인 태그를 선택
+                        // attr = attribute 속성 설정
+                        // src(이미지주소) 설정
+                        // e.target.result => 파일이 성공적으로 읽힌 다음 url 주소 값 가져오기
+                        // removeClass -> 위에서 설정한 d-none(=display : none 숨기기) 제거
+                        // 이미지 태그를 눈 앞에 볼 수 있도록 보여주기 설정
                         $("#이미지보이기").attr('src',e.target.result).removeClass('d-none');
                     }
-                    피일읽기.readAsDataURL(file);
+                    // 이미지 파일을 읽어와서 사람들이 볼 수 있는 값으로 설정한 다음 보여주는 것
+                    // 피일읽기.readAsDataURL(file); 정말 최종으로 이미지 눈앞에 보여주기
+                    파일읽기.readAsDataURL(file);
                 } else {
+                    // 만약에 선택한 이미지가 없으면 다시 엑스박스로 된 이미지 숨기기
                     $("#이미지보이기").addClass('d-none');
                 };
             });
