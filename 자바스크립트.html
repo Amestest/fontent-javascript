@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>자바스크립트 정리</title>
+    </head>
+    <body>
+        <h1>Javascript 개념 정리</h1>
+        <h2>1. var,let,const 차이점</h2>
+        <pre>
+            var : 재선언, 재할당(값변경) 가능 (사용을 거의 하지 않음)
+                ex) var 변수 - 0; 
+                    var 변수 = 1; //재선언 가능
+                        변수 = 2; //재할당 가능
+            let : 재선언불가, 재할당(값변경) 가능 (java의 변수같은 존재)
+                ex) let 변수 = 0;
+                    let 변수 = 1; //재선언 불가
+                        변수 = 2; //재할당 가능
+            const : 재선언불가, 재할당(값변경) 불가 (java의 상수 같은 존재)
+                ex) const 변수 = 0;
+                    const 변수 = 1; //재선언 불가
+                          변수 = 2; //재할당 불가
+            
+            재선언과 재할당이란?
+            재선언 : 선언 = 자신의 생각이나 입장을 분명하게 하는 것
+                    다시 변수명에 대해서 정의를 내리는 것
+            재할당 : 값을 다시 새로운 값을 저장하는 것              
+        </pre>
+        <table border="1"> 
+            <tr>
+                <th>자료형</th>
+                <th>재선언</th>
+                <th>재할당</th>
+            </tr>
+            <tr>
+                <td>var</td>
+                <td>O</td>
+                <td>O</td>
+            </tr>
+            <tr>
+                <td>let</td>
+                <td>X</td>
+                <td>O</td>
+            </tr>
+            <tr>
+                <td>const</td>
+                <td>X</td>
+                <td>X</td>
+            </tr>
+        </table>
+        <h2>2.바닐라 자바스크립트(Vanilla Javascript)에 대해 작성하시오.</h2>
+        <P>추가적인 라이브러리나 프레임워크 없이 순수한 자바스크립트 코드로 작성된 자바스크트립트</P>
+        <p>라이브러리나 프레임워크 대표적인 종류 : JQuery, React</p>
+        <P>예시 : <code>document.getElementById("아이디값");</code></P>
+
+        <h2>Javascript 객체에 대해 작성하시오.</h2>
+        <p>객체는 자바 스크립트에서 데이터를 구조화하여 저장하는데 사용하는 기본 단위</p>
+        <p>키(key)-rkqt(Value) 쌍으로 이루어져 있음</p>
+        <p>객체는 { } 중괄호를 사용해서 정의</p>
+        <p>키는 문자열로, 값은 어떠한 데이터 타입도 가능</p>
+        <pre>
+            const 사람객체 =  {
+                '이름' : '홍길동',
+                '나이' : 30,
+                '인사말' : function(){
+                    alert('환영합니다.');
+                }
+            }
+
+            사람 객체는 이름과 나이 라는 속성을 가짐  인사말이라는 메서드를 가지고 있음
+            사람객체
+                속성 : 이름, 나이
+                메서드 : 인사말
+        </pre>
+        <h2>3. DOM에 대해 작성하시오.</h2>
+        <pre>
+            DOM(Document Object Model) 약자
+            HTML 문서의 구조화된 표현을 나타냄
+            문서의 각 태그를 객체로 표현한 것
+
+            <button type="button" class="btn" onclick="클릭버튼()">버튼</button>
+            버튼 태그를 객체로 표현한다면 ???
+            const button = {
+                type : "button",
+                class : 'btn',
+                클릭버튼() : function(){
+                    alert("버튼이 클릭되었습니다.");
+                }
+            }
+            button 객체
+                속성 : type, class
+                메서드(기능) : 클릭버튼();
+        </pre>
+        <h2>4. 백엔드 / 프론트엔드/ 풀스택 개발자의 차이점에 대해 작성하시오.</h2>
+        <pre>
+            백엔드 
+                서버, 데이터베이스, 데이터베이스와 프론트엔드 연결고리
+                서버 측 언어 (java, Javascript(node.js), python ...)
+                데이터베이스 언어 (SQL(oracle, mysql ...))
+                주소값을 통한 개발 및 서버관리, 데이터 저장 및 처리를 관리
+            프론트엔드
+                HTML, CSS, Javascript 등을 사용해서 웹 페이지르 ㄹ구성하고 디자인
+                쿠키, 세션, 캐시 관리하기도 함
+                라이브러리나 프레임워크(Bootstrap, React, Jquery, Vue ...) 등 사용해서 개발
+            풀스택
+                프론트엔드와 백엔드 개발을 모두 수행 함
+                전체적인 구조를 이해하고, 클라이언트와 서버 측 모두에서 작업 가능    
+        </pre>
+    </body>
+</html>
