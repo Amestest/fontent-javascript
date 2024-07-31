@@ -33,11 +33,13 @@
         name="user_Birth"
       />
       <br />
-      <span class="birthResult"></span>
+      <span class="birthResult">생년월일을 입력하세요.</span>
     </form>
     <script>
+      /*유효성 여부를 체크해두는 객체 생성*/
       const checkList = {
-        
+        "inputName" : flase,
+        "inputId" : false,
         "inputPhone": false,
         "inputBirth": false,
       }
@@ -111,7 +113,7 @@
           span.classList.remove("error");
           checkList["inputBirth"] = true;
         } else {
-          span.textContent = "유효하지 않은 생년월일 형식입니다.";
+          span.textContent = "유효하지 않은 생년월일 형식입니다. -을 포함해서 입력해주세요.";
           span.classList.add("error");
           span.classList.remove("check");
           checkList["inputBirth"] = false;
